@@ -1,0 +1,110 @@
+// root settings //
+* {
+    margin: 0;
+    padding: 0;
+    scrollbar-color: light;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// Variable settings //
+$primary-color: #86bdfd;
+$secondary-color: #92b5f5;
+$accent-color: #3187ff;
+$light-color1: #f6f6f6;
+$light-color2: #e8e0e0;
+$main-color: #fff;
+$main-color1: ghostwhite;
+$main-color2: #272727;
+$text-color-main: rgb(20, 23, 26);
+$text-color-2: rgb(101, 119, 134);
+$box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+$aqua-grad: linear-gradient(90deg, #3187ff 0%, #00d2ff 100%);
+$light-grad: linear-gradient(90deg, $primary-color 0%, $secondary-color 100%);
+
+// Html & Psuedo Settings //
+html {
+    font-size: 15px;
+    direction: ltr;
+    display: block;
+    unicode-bidi: isolate;
+    -webkit-locale: "en";
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html, body {
+    height: 100%;
+}
+
+::selection, code::selection {
+    text-shadow: none;
+    background: rgba($primary-color, 0.4);
+}
+
+/* I NEED TO STYLE THE SCROLL BAR
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 10px;
+    background: $light-color2;
+    margin: auto 5px;
+} */
+
+body .form__field__label, body blockquote, body dl, body dt, body figcaption, body li, body p, body textarea {
+    line-height: calc(1.5em + 0.2vw);
+}
+
+p {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    text-align: justify;
+}
+
+// mixin settings //
+@mixin flexible($flex-direction) {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+    flex-direction: $flex-direction;
+}
+
+@mixin transit-ease {
+    transition: all 0.3s ease-in-out;
+}
+
+// theme settings //
+@mixin theme($toggle-theme: true) {
+    @if $toggle-theme {
+        background: $main-color2;
+        color: $main-color;
+    }
+}
+
+// media query settings //
+@mixin media-md {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+@mixin media-lg {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+@mixin media-xl {
+    @media screen and (min-width: 1600px) {
+        @content;
+    }
+}
