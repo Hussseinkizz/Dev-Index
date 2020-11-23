@@ -1,0 +1,126 @@
+
+// root settings //
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    scrollbar-color: light;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// Variable color scheme settings //
+$primary-color: #86bdfd;
+$secondary-color: #92b5f5;
+$accent-color: #3187ff;
+$light-color1: #f6f6f6;
+$light-color2: #5f5d5d;
+$main-color: #fff;
+$main-color-new: #471CA6;
+$main-color-dark: #1d293c;
+$abstract-color: #0F1C70;
+$abstract-color2: #1BB0DC;
+$main-color1: ghostwhite;
+$main-color2: #272727;
+$main-color3: rgb(230, 236, 240);
+$text-color-main: rgb(20, 23, 26);
+$text-color-2: rgb(101, 119, 134);
+$abstract-grad-color: rgb(9,9,121);
+$box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+$greeny-grad: linear-gradient(120deg,#f6bd00 15%,#60c322 85%)!important;
+$aqua-grad: linear-gradient(90deg, #3187ff 0%, #00d2ff 100%);
+$main-grad: linear-gradient( 135deg, #4285f4 0%, #ffffff 100%);
+$light-grad: linear-gradient(90deg, $primary-color 0%, $secondary-color 100%);
+$new-grad: linear-gradient(317deg, rgb(168, 74, 211) 15%, rgb(16, 2, 140) 83%);
+$new-grad-clone: linear-gradient(90deg, rgb(16, 2, 140) 0%, rgb(168, 74, 211) 100%);
+$abstract-grad: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+
+// dark theme scheme settings //
+$main-color-dark: #09131d;
+$light-color-dark: #223548;
+$lighter-color-dark: #bcd8ff;
+$area-color-dark: rgba(0, 0, 0, 0.24);
+$light-grad-dark: linear-gradient(90deg, #102131 0%, #223548 100%);
+$dark-grad:linear-gradient(90deg, #09131d 0%, #223548 100%);
+
+// Html & Psuedo Settings //
+html {
+    font-size: 15px;
+    direction: ltr;
+    display: block;
+    unicode-bidi: isolate;
+    -webkit-locale: "en";
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html, body {
+    height: 100%;
+}
+
+::selection, code::selection {
+    text-shadow: none;
+    background: rgba($primary-color, 0.4);
+}
+
+/* I NEED TO STYLE THE SCROLL BAR
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 10px;
+    background: $light-color2;
+    margin: auto 5px;
+} */
+
+body .form__field__label, body blockquote, body dl, body dt, body figcaption, body li, body p, body textarea {
+    line-height: calc(1.5em + 0.2vw);
+}
+
+p {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    text-align: justify;
+}
+
+// mixin settings //
+@mixin flexible($flex-direction) {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+    flex-direction: $flex-direction;
+}
+
+@mixin transit-ease {
+    transition: all 0.3s ease-in-out;
+}
+
+#stylus {
+    @include transit-ease;
+}
+
+// media query settings //
+@mixin media-md {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+@mixin media-lg {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+@mixin media-xl {
+    @media screen and (min-width: 1600px) {
+        @content;
+    }
+}

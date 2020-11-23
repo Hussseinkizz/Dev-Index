@@ -1,0 +1,91 @@
+@include media-md {
+    .logo {
+        position: absolute;
+        z-index: 1;
+        top: 0rem;
+        left: 0rem;
+        cursor: pointer;
+        @include transit-ease;
+        @include flexible(row);
+        font-size: 1em;
+        line-height: 0;
+        flex-basis: 3em;
+        flex-shrink: 1;
+    
+        &-box {
+            display: none;
+            padding: 0;
+            width: 2.5em;
+            height: 2.5em;
+        }
+        &-box-2 {
+            display: inline;
+            padding: 0;
+            width: 2.2em;
+            height: 2.2em;
+            margin-left: 0.2em;
+            margin-top: 0.3em;
+        }
+    
+        &-wordmark {
+            text-transform: capitalize;
+            font-weight: 500;
+            font-size: 1.2rem;
+            padding: 1px;
+            color: $lighter-color-dark;
+        }
+    }
+
+    .menuBtn {
+        visibility: hidden;
+    }
+
+    .nav {
+        visibility: visible;
+        font-size: medium;
+        border-bottom: 5px solid lighten($main-color-dark, 5%);
+
+        .menuNav {
+            @include flexible(row);
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            height: 3rem;
+            width: 100vw;
+            z-index: 1;
+            transform: translateY(0);
+            background: $main-color-dark;
+            color: $accent-color;
+            padding-right: 1rem;
+            list-style-type: none;
+            text-transform: uppercase;
+            font-size: medium;
+            display: inline-flex;
+            @include transit-ease;
+    
+            &-item {
+                padding: 0.3rem;
+                padding-bottom: 0rem;
+                padding-top: 0rem;
+                margin-right: 1rem;
+                margin-left: 1rem;
+                border-radius: 20px;
+                background: $light-color-dark;
+    
+                &.active > a {
+                    color: $light-color2;
+                }
+            }
+
+            &-link {
+                font-size: 1rem;
+                font-weight: 400;
+            }
+        }
+    }
+
+    section {
+        padding-top: 6rem;
+        margin-left: -2.5vw;
+    }
+}

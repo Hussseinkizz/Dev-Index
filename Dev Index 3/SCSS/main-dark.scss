@@ -1,0 +1,434 @@
+@import 'config';
+@import 'menu-dark';
+@import 'menu-2-dark';
+
+/*
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('../assets/logo\ splash.png') 50% 50% no-repeat rgb(249,249,249);
+  background: transparent;
+} */
+
+body {
+    background: $main-color-dark;
+    color: $primary-color;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+h1,h2,h3,h4 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        color: $primary-color;
+        @include transit-ease;
+    }
+}
+
+hr {
+    color: $light-color2;
+}
+
+img,iframe,embed {
+    max-width: 100%;
+    border-style: none;
+}
+
+header {
+  @include media-md {
+    border-bottom: 0;
+  }
+    @include flexible(column);
+    width: 100vw;
+    height: 3rem;
+    position: fixed;
+    top: 0;
+    padding: 0.5rem;
+    z-index: 2;
+    display: block;
+    background: $main-color-dark;
+    border-bottom: 5px solid  lighten($main-color-dark, 5%);
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    
+    .liner {
+        color: $light-color2;
+        opacity: 0.1;
+    }
+
+    .reminder {
+      @include media-md {
+        width: 92%;
+        height: 10%;
+        visibility: visible;
+      }
+      
+        visibility: hidden;
+        width: 1rem;
+        height: 1rem;
+
+        display: grid;
+        padding: 0.5rem;
+        place-items: center;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin: 0 5.8vw;
+        text-align: center;
+        border-radius: 12px;
+        background: $light-color-dark;
+    }
+}
+
+footer {
+    @include flexible(row);
+    position: static;
+    color: lighten($main-color-dark, 5%);
+    bottom: 0.5rem;
+    width: 100%;
+    height: 3rem;
+}
+
+.card-icon {
+  padding: 1px;
+  margin: 2px;
+  color: $accent-color;
+}
+
+/* Home & About CSS starts */
+.cards-container {
+  @include media-md {
+      width: 100%;
+      margin-top: 3%;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      grid-row-gap: 0.5rem;
+      padding: 0 2rem;
+      margin-left: 2vw;
+  }
+
+    width: 100%;
+    @include flexible(column);
+    margin-top: 15%;
+    margin-bottom: 1rem;
+    font-size: medium;
+
+    &-about {
+        @extend .cards-container;
+        place-items: center;
+        justify-content: center;
+        @include media-md {
+          margin: 3%;
+          margin-top: 0;
+          margin-bottom: 0;
+          margin-left: 5%;
+        }
+
+
+        .about-card {
+          @include media-md {
+            margin-left: 2vw;
+            margin-top: 0;
+            margin-bottom: 1rem;
+          }
+            width: 85vw;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $light-color-dark;
+            background: $light-color-dark;
+            border-radius: 12px;
+            margin: auto;
+            margin-top: 5%;
+            color: lighten($text-color-2, 15%);
+            white-space: pre-wrap;
+            min-width: 0px;
+            padding: 4px;
+            position: relative;
+            display: inline;
+            overflow-wrap: break-word;
+            text-align: justify;
+
+            &-icon {
+              color: $accent-color;
+            }
+
+            &-title {
+                font-size: 100%;
+                font-weight: 500;
+                color: $accent-color;
+                text-align: center;
+                text-transform: capitalize;
+            }
+
+            &-text {
+                justify-content: center;
+                text-align: center;
+                padding: 1rem;
+
+                .my-span-link {
+                    color: $text-color-2;
+                    text-decoration: underline;
+
+                    &:hover {
+                        color: $secondary-color;
+                    }
+                }
+
+                &-creditor {
+                  display:grid;
+                  place-items: center;
+                  grid-template-rows: repeat(2,1fr);
+                  justify-content: center;
+                  text-align: center;
+                  padding: 1rem;
+                  width: 100%;
+                  margin: auto;
+                  @include media-md {
+                    display: grid;
+                    grid-template-columns: repeat(2,1fr);
+                    grid-row-gap: 0.5rem;
+                    padding: 1rem;
+                    margin: 0 1rem;
+                }
+            
+            &-credits {
+              font-weight: 500;
+              margin-bottom: 2%;
+              margin-top: 1rem;
+              color: lighten($light-color-dark, 15%);
+
+              &-link {
+                color: lighten($light-color-dark, 15%);
+                font-weight: 500;
+
+                &:hover {
+                    color: lighten($text-color-2, 5%);
+                }
+            }
+          }
+            }
+          } 
+        }
+    }
+
+.card {
+  @include media-md {
+    height: 0;
+    width: 45vw;
+    padding: 2px;
+    margin: 2% auto;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $light-color-dark;
+    background: $light-color-dark;
+    border-radius: 12px;
+    
+  }
+
+    width: 90vw;
+    padding: 2px;
+    margin: 2% auto;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $light-color-dark;
+    background: $light-color-dark;
+    border-radius: 12px;
+
+    &-title {
+        font-weight: 500;
+        color: $primary-color;
+        margin-bottom: 1rem;
+        text-align: left;
+
+        &-icon {
+          padding: 1px;
+          color: $primary-color;
+        }
+    }
+
+    &-link {
+            text-align: left;
+            text-transform: capitalize;
+            margin: 1rem;
+            color: lighten($text-color-2, 15%);
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+    &-icon {
+            text-align: right;
+        }
+}
+}
+
+/* Contact Page CSS */
+
+#contact {
+            width: 90vw;
+            justify-content: center;
+            border: 1px solid $light-grad-dark;
+            background: $light-grad-dark;
+            border-radius: 12px;
+            margin: auto;
+            outline: 0 !important;
+            margin-top: 20%;
+            margin-bottom: 1rem;
+            color: $main-color3;
+            min-width: 0px;
+            padding: 4px;
+            position: relative;
+            box-shadow: $box-shadow;
+
+            @include media-md {
+              margin-top: 5%;
+              margin-left: 6.5vw;
+            }
+  }
+  
+  #contact input[type="text"],
+  #contact input[type="email"],
+  #contact input[type="tel"],
+  #contact input[type="url"],
+  #contact textarea,
+  #contact button[type="submit"] {
+    color: $lighter-color-dark;
+    outline: 0;
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+  }
+  
+  #contact h3 {
+    color: $accent-color;
+    display: block;
+    font-size: 100%;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  #contact h4 {
+    color: lighten($text-color-2, 15%);
+    margin: 5px 0 15px;
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  fieldset {
+    outline: 0;
+    border: medium none !important;
+    margin: 0 0 5px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+  }
+  
+  #contact input[type="text"],
+  #contact input[type="email"],
+  #contact input[type="tel"],
+  #contact input[type="url"],
+  #contact textarea {
+    width: 90%;
+    border: 0;
+    background: $area-color-dark;
+    border-radius: 5px;
+    margin: 0rem 5vw;
+    margin-left: 4.5vw;
+    padding: 10px;
+  }
+  
+  #contact input[type="text"]:hover,
+  #contact input[type="email"]:hover,
+  #contact input[type="tel"]:hover,
+  #contact input[type="url"]:hover,
+  #contact textarea:hover {
+    border: 0.1px solid lighten($light-color-dark, 5%);
+  }
+  
+  #contact textarea {
+    height: 100px;
+    max-width: 100%;
+    resize: none;
+  }
+  
+  #contact button[type="submit"] {
+    cursor: pointer;
+    width: 90%;
+    outline: 0;
+    border: none;
+    border-radius: 5px;
+    background: $area-color-dark;
+    color: $accent-color;
+    margin: 0rem 5vw;
+    margin-left: 4.5vw;
+    padding: 10px;
+    font-size: 15px;
+  }
+  
+  #contact button[type="submit"]:hover {
+    background: darken($accent-color, 20%);
+    color: darken($main-color1, 3%);
+    outline: 0;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  #contact button[type="submit"]:active {
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba($light-color-dark, 0.5);
+  }
+  
+  .copyright {
+    text-align: center;
+    white-space: nowrap;
+    margin-bottom: 2%;
+    margin-left: 0;
+    margin-right: 0;
+    color: lighten($light-color-dark, 5%);
+
+      &-link:hover {
+          color: darken($accent-color, 20%);
+      }
+  }
+  
+  #contact input:focus,
+  #contact textarea:focus {
+    outline: 0;
+    border: 0.1px solid rgba($accent-color, 0.5);
+  }
+  
+  ::-webkit-input-placeholder {
+    color: lighten($text-color-main, 25%);
+  }
+  
+  :-moz-placeholder {
+    color: lighten($text-color-main, 25%);
+  }
+  
+  ::-moz-placeholder {
+    color: lighten($text-color-main, 25%);
+  }
+  
+  :-ms-input-placeholder {
+    color: $main-color3;
+  }
