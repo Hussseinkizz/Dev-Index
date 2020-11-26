@@ -1,0 +1,183 @@
+ .logo {
+    position: absolute;
+    z-index: 0;
+    top: 0.2rem;
+    left: 0rem;
+    cursor: pointer;
+    @include transit-ease;
+    @include flexible(row);
+    font-size: 1em;
+    line-height: 0;
+    flex-basis: 3em;
+    flex-shrink: 1;
+
+    &-box {
+        padding: 0;
+        width: 2.1em;
+        height: 2.1em;
+        margin-left: 0.2em;
+
+
+        &.open {
+            display: none;
+            padding: 0;
+            width: 2em;
+            height: 2em; 
+        }
+    }
+
+    &-box-2 {
+        display: none;
+
+        &.open {
+            display: inline;
+            padding: 0;
+            width: 2.2em;
+            height: 2.2em;
+            margin-left: 0.2em;
+            margin-right: 0.3em;
+        }
+    }
+
+    &-wordmark {
+        font-weight: 500;
+        font-size: 1.2em;
+        padding: 1px;
+        color: $main-color;
+
+        &.open {
+            opacity: 0;
+            display: none;
+        }
+    }
+
+    &.open {
+        position: absolute;
+        z-index: 1;
+        top: 0.4rem;
+        left: 0rem;
+        cursor: pointer;
+        @include flexible(row);
+        font-size: 1em;
+        line-height: 0;
+        flex-basis: 3em;
+        flex-shrink: 1;
+    }
+}
+
+.menuBtn {
+    position: absolute;
+    z-index: 1;
+    top: 0.4rem;
+    right: 0.5rem;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    @include transit-ease;
+
+    &-burger {
+        position: absolute;
+        right: 0;
+        top: 0.8rem;
+        width: 20px;
+        height: 3px;
+        background: $main-color;
+        border-radius: 20px;
+        @include transit-ease;
+
+        &::before {
+            content:'';
+            top: -6px;
+            width: 20px;
+            height: 3px;
+            position: absolute;
+            background: $main-color;
+            border-radius: 20px;
+            @include transit-ease;
+        }
+
+        &::after {
+            content:'';
+            top: 6px;
+            width: 20px;
+            height: 3px;
+            position: absolute;
+            background: $main-color;
+            border-radius: 20px;
+            @include transit-ease;
+        }
+
+        &.open {
+            transform: rotate(720deg);
+            background: transparent;
+
+            &::before {
+                transform: rotate(45deg) translate(5px, 8px);
+                background: $main-color;
+            }
+
+            &::after {
+                transform: rotate(-45deg) translate(0px, -4px);
+                background: $main-color;
+            }
+        }
+}
+}
+
+.nav {
+    @include flexible(column);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-width: 50%;
+    visibility: hidden;
+
+    &.open {
+        visibility: visible;
+        font-size: small;
+        background: $accent-color;
+        color: $main-color;
+    }
+
+    .menuNav {
+        @include flexible(row);
+        flex-wrap: nowrap;
+        height: 3rem;
+        width: 100vw;
+        min-width: 50%;
+        transform: translateY(-100%);
+        background: $accent-color;
+        padding-right: 1rem;
+        list-style-type: none;
+        text-transform: uppercase;
+        display: inline-flex;
+        @include transit-ease;
+
+        &.open {
+            transform: translateY(0);
+            color: $abstract-color2;
+            @include flexible(row);
+            font-size: 3.5vw;
+            margin-left: 1.5rem;
+        }
+
+        &-item {
+            padding: 0.3rem;
+            padding-top: 0rem;
+            padding-bottom: 0.1rem;
+            margin-right: 0.5rem;
+            margin-left: 0.1rem;
+            border-radius: 20px;
+            background: $main-color3;
+
+            &.active {
+                color: $accent-color;
+            }
+        }
+    }
+}
+
+#toggle-icon:hover {
+    color: $text-color-2;
+}
