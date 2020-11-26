@@ -36,10 +36,15 @@ function toggleMenu () {
     }
 }
 
-/*
-$(window).load(function() {
-    $(".loader").fadeOut("slow");
-}) */
+(function($){
+  'use strict';
+    $(window).on('load', function () {
+        if ($(".loader").length > 0)
+        {
+            $(".loader").fadeOut("slow");
+        }
+    });
+})(jQuery)
 
 const styler = document.getElementById('stylus');
 const toggler = document.getElementById('toggler');
